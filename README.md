@@ -1,6 +1,6 @@
 # LLM Study Notes
 
-My notes and summaries while working through *Hands-On Large Language Models*, written up from my own handwritten study notes as I go.
+My handwritten notes alongside a more formal markdown summary for each one, written up as I work through *Hands-On Large Language Models*.
 
 This isn't a copy of the book — it's my own understanding of each chapter's core ideas, reorganized into something readable, plus a short "what clicked" reflection at the end of each one.
 
