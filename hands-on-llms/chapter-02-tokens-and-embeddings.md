@@ -1,5 +1,16 @@
 # Chapter 2 — Tokens and Embeddings
 
+## Original Handwritten Notes
+
+<details>
+<summary>View original pages</summary>
+
+![Chapter 2 page 1](./images/chapter-02-page-01.jpg)
+![Chapter 2 page 2](./images/chapter-02-page-02.jpg)
+![Chapter 2 page 3](./images/chapter-02-page-03.jpg)
+
+</details>
+
 ## Summary
 
 Before an LLM can process text, it has to break that text into smaller units (tokens) and convert each one into a numeric form (an embedding) that captures meaning. This chapter covers how tokenization and embedding work together to turn raw text into something a model can actually compute on, and how the model's output gets converted back into readable text.
@@ -43,14 +54,3 @@ A model's ability to take in tokenized language and produce output that is logic
 ## My Notes / What Clicked
 
 The biggest "aha" here was realizing tokenization and embedding are two separate, sequential steps — tokenization just assigns IDs (still basically just bookkeeping), and only the embedding step actually encodes meaning as numbers. Before this I'd been treating "tokenizing" and "embedding" as roughly the same thing.
-
-## Original Handwritten Notes
-
-<details>
-<summary>View original pages</summary>
-
-![Chapter 2 page 1](./images/chapter-02-page-01.jpg)
-![Chapter 2 page 2](./images/chapter-02-page-02.jpg)
-![Chapter 2 page 3](./images/chapter-02-page-03.jpg)
-
-</details>

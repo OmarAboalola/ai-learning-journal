@@ -1,5 +1,22 @@
 # Chapter 8 — Semantic Search and Retrieval-Augmented Generation
 
+## Original Handwritten Notes
+
+<details>
+<summary>View original pages</summary>
+
+![Chapter 8 page 1](./images/chapter-08-page-01.jpg)
+![Chapter 8 page 2](./images/chapter-08-page-02.jpg)
+![Chapter 8 page 3](./images/chapter-08-page-03.jpg)
+![Chapter 8 page 4](./images/chapter-08-page-04.jpg)
+![Chapter 8 page 5](./images/chapter-08-page-05.jpg)
+![Chapter 8 page 6](./images/chapter-08-page-06.jpg)
+![Chapter 8 page 7](./images/chapter-08-page-07.jpg)
+![Chapter 8 page 8](./images/chapter-08-page-08.jpg)
+![Chapter 8 page 9](./images/chapter-08-page-09.jpg)
+
+</details>
+
 ## Summary
 
 Even when models can answer fluently and confidently, their answers aren't always accurate or up to date — this is the well-known problem of **hallucination**. This chapter covers how semantic search retrieves relevant information for a query, how chunking and re-ranking improve that retrieval, how retrieval quality gets evaluated, and finally how all of this feeds into **Retrieval-Augmented Generation (RAG)** — including more advanced patterns like query rewriting, multi-query RAG, and multi-hop RAG.
@@ -110,20 +127,3 @@ So later queries in the chain depend on information retrieved by earlier ones, r
 ## My Notes / What Clicked
 
 The distinction between multi-query and multi-hop RAG was the most useful thing to nail down here: multi-query just splits one question into independent parts that could all be asked at once, while multi-hop only knows its later questions *after* getting answers to the earlier ones — it's a sequential, dependent chain rather than a parallel split. That's a meaningfully different system to build (multi-hop needs orchestration logic that waits on intermediate results).
-
-## Original Handwritten Notes
-
-<details>
-<summary>View original pages</summary>
-
-![Chapter 8 page 1](./images/chapter-08-page-01.jpg)
-![Chapter 8 page 2](./images/chapter-08-page-02.jpg)
-![Chapter 8 page 3](./images/chapter-08-page-03.jpg)
-![Chapter 8 page 4](./images/chapter-08-page-04.jpg)
-![Chapter 8 page 5](./images/chapter-08-page-05.jpg)
-![Chapter 8 page 6](./images/chapter-08-page-06.jpg)
-![Chapter 8 page 7](./images/chapter-08-page-07.jpg)
-![Chapter 8 page 8](./images/chapter-08-page-08.jpg)
-![Chapter 8 page 9](./images/chapter-08-page-09.jpg)
-
-</details>

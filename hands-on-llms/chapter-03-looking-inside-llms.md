@@ -1,5 +1,20 @@
 # Chapter 3 — Looking Inside LLMs
 
+## Original Handwritten Notes
+
+<details>
+<summary>View original pages</summary>
+
+![Chapter 3 page 1](./images/chapter-03-page-01.jpg)
+![Chapter 3 page 2](./images/chapter-03-page-02.jpg)
+![Chapter 3 page 3](./images/chapter-03-page-03.jpg)
+![Chapter 3 page 4](./images/chapter-03-page-04.jpg)
+![Chapter 3 page 5](./images/chapter-03-page-05.jpg)
+![Chapter 3 page 6](./images/chapter-03-page-06.jpg)
+![Chapter 3 page 7](./images/chapter-03-page-07.jpg)
+
+</details>
+
 ## Summary
 
 This chapter goes under the hood of GPT-like models to explain how a forward pass actually works: how a model generates one token at a time, what happens inside a transformer block, how attention lets tokens "look at" each other, and a few of the optimizations (KV caching, sparse attention, rotary embeddings) that make modern LLMs practical to run.
@@ -89,18 +104,3 @@ A couple of notes on positional embeddings generally: they never change for a gi
 ## My Notes / What Clicked
 
 The KV cache idea took a re-read to fully click — the key insight is that without it, the model would be redoing the *same* Key/Value calculations for all the earlier tokens every single time it generates one new token, which is wasteful since those earlier tokens haven't changed. Caching just avoids that repeated work.
-
-## Original Handwritten Notes
-
-<details>
-<summary>View original pages</summary>
-
-![Chapter 3 page 1](./images/chapter-03-page-01.jpg)
-![Chapter 3 page 2](./images/chapter-03-page-02.jpg)
-![Chapter 3 page 3](./images/chapter-03-page-03.jpg)
-![Chapter 3 page 4](./images/chapter-03-page-04.jpg)
-![Chapter 3 page 5](./images/chapter-03-page-05.jpg)
-![Chapter 3 page 6](./images/chapter-03-page-06.jpg)
-![Chapter 3 page 7](./images/chapter-03-page-07.jpg)
-
-</details>
