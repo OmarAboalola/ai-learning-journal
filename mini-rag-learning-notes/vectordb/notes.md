@@ -7,4 +7,5 @@ There are two types of vector databases:
 
 Qdrant is file-based, but during initialization you still get a URL. That URL isn't for an engine — it's just used for Docker, so don't let it trick you into thinking Qdrant needs one running in the background.
 
-**Open question I hadn't fully resolved:** in the Qdrant DB provider file, why do we iterate through the metadata even when it's `None`?
+in the Qdrant DB provider file, why do we iterate through the metadata even when it's `None`?
+-Because insert_many zips texts, vectors, metadata, and record_ids together positionally (line 160–165) to build one Record per item. zip() needs all four to be the same length and iterable — a bare None isn't iterable and would break the zip (or misalign items if handled some other way).
