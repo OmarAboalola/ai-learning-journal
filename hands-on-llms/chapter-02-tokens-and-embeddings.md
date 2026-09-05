@@ -51,6 +51,3 @@ This distinction tripped me up at first, so it's worth being explicit:
 
 A model's ability to take in tokenized language and produce output that is logically consistent, well-connected, and makes sense as a response — not just grammatically valid, but actually coherent given the input.
 
-## My Notes / What Clicked
-
-The biggest "aha" here was realizing tokenization and embedding are two separate, sequential steps — tokenization just assigns IDs (still basically just bookkeeping), and only the embedding step actually encodes meaning as numbers. Before this I'd been treating "tokenizing" and "embedding" as roughly the same thing.
