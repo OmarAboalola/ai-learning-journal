@@ -10,7 +10,7 @@
 # inherit all shared functions from BaseController
 ```
 
-###  Code
+### Code
 
 ```python
 class ProjectController(BaseController):
@@ -32,10 +32,11 @@ class ProjectController(BaseController):
 ### Code
 
 ```python
-project_dir = os.path.join(
-    self.files_dir,
-    project_id
-)
+def get_project_path(self, project_id: str):
+    project_dir = os.path.join(
+        self.files_dir,
+        str(project_id)
+    )
 ```
 
 ---

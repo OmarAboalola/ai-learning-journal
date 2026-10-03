@@ -20,7 +20,7 @@ class DataController(BaseController):
 
 ## Comment 2
 
-###  Comment
+### Comment
 
 ```python
 # convert MB to bytes
@@ -214,3 +214,5 @@ cleaned_file_name = re.sub(
 ```python
 cleaned_file_name = cleaned_file_name.replace(" ", "_")
 ```
+
+**Note:** the regex in Comment 11 already removes spaces (`\w` matches only letters, digits and underscore, so a space is stripped), which means this line never has anything to replace. To turn spaces into underscores, this step would need to run before the regex.

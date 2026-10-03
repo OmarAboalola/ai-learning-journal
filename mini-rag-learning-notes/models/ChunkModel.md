@@ -67,8 +67,10 @@ self.collection = self.db_client[
 ### Code
 
 ```python
-def create_chunk(self, chunk: DataChunk):
-    result = self.collection.insert_one(chunk.dict())
+async def create_chunk(self, chunk: DataChunk):
+    result = await self.collection.insert_one(
+        chunk.dict(by_alias=True, exclude_unset=True)
+    )
     chunk._id = result.inserted_id
     return chunk
 ```
@@ -112,16 +114,24 @@ chunk._id = result.inserted_id
 ### Comment
 
 ```python
-# insert multiple chunks at once
+# insert multiple chunks at once, in batches
 ```
 
 ### Code
 
 ```python
-async def create_chunks(self, chunks: DataChunk):
-    result = await self.collection.insert_many(chunk.dict())
-    chunk._id = result.inserted_id
-    return chunks
+async def insert_many_chunks(self, chunks: list, batch_size: int = 100):
+    for i in range(0, len(chunks), batch_size):
+        batch = chunks[i:i + batch_size]
+
+        operations = [
+            InsertOne(chunk.dict(by_alias=True, exclude_unset=True))
+            for chunk in batch
+        ]
+
+        await self.collection.bulk_write(operations)
+
+    return len(chunks)
 ```
 
 ---
@@ -148,7 +158,7 @@ def get_chunks_by_project_id(self, project_id: str):
 
 ```python
 # this chunk belongs to a specific project, so we store the
-# project_id as a foreign key pointing to the project table
+# project's id as a reference to the project document
 ```
 
 ### Code
@@ -161,16 +171,18 @@ chunk_project_id: ObjectId
 
 ## Post-migration note (PostgreSQL / SQLAlchemy)
 
-After moving to SQLAlchemy, `insert_many_chunks` batches the chunks in memory, but the commit itself isn't actually batched:
+After moving to SQLAlchemy, my first version of `insert_many_chunks` split the chunks into batches, but the commit still happened once at the end, so everything was written as one big transaction. That defeats the point of batching (smaller, incremental commits to reduce load).
+
+The fix was to open one transaction per batch, so each batch is committed on its own:
 
 ```python
-async def insert_many_chunks(self, chunks: list, batch_size: int=100):
+async def insert_many_chunks(self, chunks: list, batch_size: int = 100):
     async with self.db_client() as session:
-        async with session.begin():
-            for i in range(0, len(chunks), batch_size):
-                batch = chunks[i:i+batch_size]
+        for i in range(0, len(chunks), batch_size):
+            batch = chunks[i:i + batch_size]
+            async with session.begin():
                 session.add_all(batch)
-        await session.commit()  # 1 commit = 1 big batch so its not quite correct logic so to mirror mongo this should be inside the loop ig?
+    return len(chunks)
 ```
 
-`session.add_all(batch)` runs once per slice, so the chunks get staged in batches — but `commit()` sits outside the `for` loop, so everything still gets flushed and committed as a single transaction at the end. That defeats the point of batching (smaller, incremental commits to reduce load), even though it looks batched. To actually mirror the old Mongo behavior, `commit()` should move inside the loop, once per batch.
+`session.begin()` commits automatically when its block ends, so no explicit `commit()` is needed.

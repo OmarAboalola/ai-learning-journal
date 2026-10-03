@@ -1,4 +1,4 @@
-# Agentic AI — Design Patterns & Workflow Risks
+# Agentic AI: Design Patterns & Workflow Risks
 
 A concise learning note on **Agentic AI**, common **agentic design patterns**, and the main risks that appear when LLMs are allowed to control parts of a workflow.
 
@@ -18,22 +18,18 @@ A concise learning note on **Agentic AI**, common **agentic design patterns**, a
   <img src="./images/agentic-ai-2.png" alt="Agentic AI handwritten notes - page 2" width="780">
 </p>
 
-<p align="center">
-  <a href="./Agentic_AI.pdf"><strong>📄 View / Download the original PDF</strong></a>
-</p>
-
 ---
 
 ## Summary
 
 An **AI agent** can be thought of as an AI system that can do work for you independently.
 
-The notes highlight how the definition evolved during 2025:
+My notes track how the definition evolved during 2025:
 
 - **Early 2025:** an AI system where an **LLM controls the workflow**.
 - **Later in 2025:** an **LLM with tools in a loop to achieve a goal**.
 
-The important shift is that the LLM is not only generating text  it can participate in deciding **what happens next** in the workflow.
+The important shift is that the LLM is not only generating text. It can participate in deciding **what happens next** in the workflow.
 
 ---
 
@@ -144,7 +140,7 @@ Dynamic loops, multiple workers, and repeated evaluation can make the total cost
 
 ## Monitoring & Guardrails
 
-The notes suggest two important ways to deal with this unpredictability:
+Two ways to deal with this unpredictability:
 
 ### Monitoring
 

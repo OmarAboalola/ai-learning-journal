@@ -1,12 +1,13 @@
 # Agent Orchestration & Guardrails
 
 This section documents my notes and key takeaways while learning about **AI agents**.
+
 ## Original Handwritten Notes
 
 These are my handwritten notes from studying **Agent Orchestration, Guardrails, and Tripwires**:
 
 <p align="center">
-  <img src="./images/OpenAI-sdk.jpg" alt="Agentic AI handwritten notes - page 1" width="780">
+  <img src="./images/OpenAI-sdk.jpg" alt="Agent orchestration and guardrails handwritten notes" width="780">
 </p>
 
 
@@ -16,9 +17,9 @@ These are my handwritten notes from studying **Agent Orchestration, Guardrails, 
 
 Agents can be coordinated in different ways depending on the workflow and level of control required:
 
-- **Code** — Use application logic to control the agent workflow.
-- **Tools** — Give the agent tools it can use to perform actions.
-- **Handoffs** — Allow one agent to transfer a task to another specialized agent.
+- **Code:** Use application logic to control the agent workflow.
+- **Tools:** Give the agent tools it can use to perform actions.
+- **Handoffs:** Allow one agent to transfer a task to another specialized agent.
 
 ### Guardrails
 
@@ -26,9 +27,9 @@ Guardrails are used to control and validate agent behavior.
 
 The main types I studied are:
 
-- **Input Guardrails** — Validate or check user input before the agent processes it.
-- **Output Guardrails** — Validate the agent's final response.
-- **Tool Guardrails** — Control or validate how tools are used.
+- **Input Guardrails:** Validate or check user input before the agent processes it.
+- **Output Guardrails:** Validate the agent's final response.
+- **Tool Guardrails:** Control or validate how tools are used.
 
 ### Tripwires
 

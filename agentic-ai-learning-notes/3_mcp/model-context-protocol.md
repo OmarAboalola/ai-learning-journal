@@ -77,7 +77,7 @@ A **transport mechanism** is the way a client and a server communicate. MCP uses
 
 A server is just **a set of parameters**. The parameters depend on the transport.
 
-**Local server (stdio)** — the client needs a command to launch it:
+**Local server (stdio):** the client needs a command to launch it:
 
 ```json
 {
@@ -86,7 +86,7 @@ A server is just **a set of parameters**. The parameters depend on the transport
 }
 ```
 
-**Remote server (streamable HTTP)** — the client only needs a URL:
+**Remote server (streamable HTTP):** the client only needs a URL:
 
 ```json
 {

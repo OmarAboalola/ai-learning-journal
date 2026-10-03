@@ -250,7 +250,7 @@ if total_documets % page_size > 0:
 
 ```python
 # skip the documents from the previous pages and limit the results to one page.
-# this doesn't return the data directly — it returns a cursor (a pointer object)
+# this doesn't return the data directly: it returns a cursor (a pointer object)
 # that you iterate over to get the actual data
 ```
 

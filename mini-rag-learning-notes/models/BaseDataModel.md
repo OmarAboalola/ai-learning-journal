@@ -6,7 +6,7 @@
 
 ## Comment 1
 
-###  Comment
+### Comment
 
 ```python
 # initialize the db client so every child class can use it
@@ -26,7 +26,7 @@ class BaseDataModel:
 
 ## Comment 2
 
-###  Comment
+### Comment
 
 ```python
 # load the project settings once
